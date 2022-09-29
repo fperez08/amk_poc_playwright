@@ -18,8 +18,9 @@ test.describe(() => {
     const header = page.locator(".title");
     await expect(header).toHaveText('Products')
 
-    const incorrectProduct = page.locator("a[id='item_3_title_link'] div[class='inventory_item_name']");
-    await expect(incorrectProduct).toHaveText("Test.allTheThings() T-Shirt (Red)");
+    const incorrectImage = page.locator("img[alt='Sauce Labs Backpack']");
+    const srcText = await incorrectImage.getAttribute('src');
+    await expect(srcText).toContain('sl-404');
   
   });
 });
