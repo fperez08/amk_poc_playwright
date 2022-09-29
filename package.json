@@ -1,0 +1,11 @@
+{
+  "name": "amk_poc_playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "zerep28 <89164092+zerep28@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.26.1"
+  },
+  "scripts": {}
+}
