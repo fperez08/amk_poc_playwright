@@ -7,5 +7,8 @@
   "devDependencies": {
     "@playwright/test": "^1.26.1"
   },
-  "scripts": {}
+  "scripts": {
+    "test:fe": "playwright test",
+    "test:report": "npx playwright show-report"
+  }
 }

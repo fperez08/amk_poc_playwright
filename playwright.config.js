@@ -12,8 +12,8 @@ const { devices } = require("@playwright/test");
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
-    globalSetup: require.resolve("./global_setup.js"),
-    testDir: "./tests",
+    globalSetup: require.resolve("./e2eFE/global_setup.js"),
+    testDir: "./e2eFE/tests",
     /* Maximum time one test can run for. */
     timeout: 30 * 1000,
     expect: {
@@ -35,6 +35,7 @@ const config = {
     reporter: "html",
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
+        headless: true,
         /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
         actionTimeout: 0,
         /* Base URL to use in actions like `await page.goto('/')`. */
