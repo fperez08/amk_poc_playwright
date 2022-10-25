@@ -1,0 +1,519 @@
+{
+	"info": {
+		"_postman_id": "4e8263b5-3c56-4dd5-a285-4c75b9d96235",
+		"name": "Todoist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Back End Project",
+			"item": [
+				{
+					"name": "Create Project",
+					"item": [
+						{
+							"name": "Create a new Task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"var name = pm.environment.get(\"taskName\");\r",
+											"pm.test(\"Task name is correct\", function () {\r",
+											"    pm.expect(jsonData.content).to.eql(name);\r",
+											"});\r",
+											"pm.environment.set(\"taskId\", jsonData.id);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-id",
+										"value": "$(uuidgen)",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"{{taskName}}\"\r\n}"
+								},
+								"url": {
+									"raw": "{{TodoistURL}}",
+									"host": [
+										"{{TodoistURL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Tasks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"var name = pm.variables.get(\"taskNameTDD\")\r",
+											"pm.test(\"Project Name is Correct\", function(){\r",
+											"    pm.expect(jsonData.content).to.eql(name);\r",
+											"});\r",
+											"pm.environment.set([\"taskIdTDD\"], jsonData.id);\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-id",
+										"value": "$(uuidgen)",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"{{taskNameTDD}}\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{TodoistURL}}",
+									"host": [
+										"{{TodoistURL}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Project",
+					"item": [
+						{
+							"name": "Get  All Active Tasks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{TodoistURL}}",
+									"host": [
+										"{{TodoistURL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get  All Active Tasks  Added TDD",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"var name = pm.variables.get(\"taskNameTDD\")\r",
+											"pm.test(\"Project Name is Correct\", function(){\r",
+											"    pm.expect(jsonData.content).to.eql(name);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{TodoistURL}}/{{taskIdTDD}}",
+									"host": [
+										"{{TodoistURL}}"
+									],
+									"path": [
+										"{{taskIdTDD}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get an Active Task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"var name = pm.environment.get(\"taskName\");\r",
+											"pm.test(\"Task \"+name+\" is on the task list\"  , function () {\r",
+											"    pm.expect(jsonData.content).to.eql(name);\r",
+											"});\r",
+											"var jsonData = pm.response.json();\r",
+											"var id = pm.environment.get(\"taskId\");\r",
+											"pm.test(\"Task Id \"+id+\" is correct\"  , function () {\r",
+											"    pm.expect(jsonData.id).to.eql(id);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{TodoistURL}}/{{taskId}}",
+									"host": [
+										"{{TodoistURL}}"
+									],
+									"path": [
+										"{{taskId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update Project",
+					"item": [
+						{
+							"name": "Update Task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-id",
+										"value": "$(uuidgen)",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"content\": \"TestUpdated\"\r\n}"
+								},
+								"url": {
+									"raw": "{{TodoistURL}}/{{taskId}}",
+									"host": [
+										"{{TodoistURL}}"
+									],
+									"path": [
+										"{{taskId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Task Status to Clomplete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-id",
+										"value": "$(uuidgen)",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{TodoistURL}}/{{taskId}}/close",
+									"host": [
+										"{{TodoistURL}}"
+									],
+									"path": [
+										"{{taskId}}",
+										"close"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Reopen a Task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-id",
+										"value": "$(uuidgen)",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{TodoistURL}}/{{taskId}}/reopen",
+									"host": [
+										"{{TodoistURL}}"
+									],
+									"path": [
+										"{{taskId}}",
+										"reopen"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete Project",
+					"item": [
+						{
+							"name": "Delete task added",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{TodoistURL}}/{{taskId}}",
+									"host": [
+										"{{TodoistURL}}"
+									],
+									"path": [
+										"{{taskId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete all task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{TodoistURL}}/{{taskIdTDD}}",
+									"host": [
+										"{{TodoistURL}}"
+									],
+									"path": [
+										"{{taskIdTDD}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 2xx\", function () {",
+					"    pm.response.to.be.success;",
+					"});",
+					"pm.test(\"Response time is less than 500ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+					"});",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "taskIdTDD",
+			"value": "",
+			"disabled": true
+		},
+		{
+			"key": "taskIdTDD",
+			"value": "",
+			"disabled": true
+		}
+	]
+}

@@ -9,6 +9,8 @@
   },
   "scripts": {
     "test:fe": "playwright test",
-    "test:report": "npx playwright show-report"
+    "test:report": "npx playwright show-report",
+
+    "test:be": "newman run ./e2eBE/BackEnd_newman/collection/Todoist.postman_collection.json -e ./e2eBE/BackEnd_newman/envVariables/QA_Environment.postman_environment.json -d ./e2eBE/BackEnd_newman/data/TDD.txt -r htmlextra --reporter-htmlextra-export './test-reports/reportBE.html' "
   }
 }
