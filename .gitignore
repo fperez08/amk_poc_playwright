@@ -1,4 +1,6 @@
 node_modules
 playwright-report
+test-reports
 problem_user_state.json
 standard_user_state.json
+.DS_Store
