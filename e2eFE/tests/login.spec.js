@@ -27,13 +27,13 @@ test.describe("Problem user", () => {
     });
 });
 
-test.describe.only("Standard user POM", () => {
+test.describe("Standard user POM", () => {
     test.use({ storageState: "standard_user_state.json" });
     test.beforeEach(async ({page}) =>{
         await page.goto(URLS.BASE_URL + "/inventory.html");
     })
      
-    test("Successful login POM ", async ({ page }) => {
+    test("Successful login POM @smoke", async ({ page }) => {
         const inventoryPage = new InventoryPage(page);
         const header = await inventoryPage.header;
         await expect(header).toHaveText("Products");
@@ -46,7 +46,7 @@ test.describe("Problem user POM", () => {
         await page.goto(URLS.BASE_URL + "/inventory.html");
      })
    
-     test("Incorrect image displayed POM", async ({ page }) => {
+     test("Incorrect image displayed POM @smoke", async ({ page }) => {
         const inventoryPage = new InventoryPage(page);
         const header = await inventoryPage.header;
         await expect(header).toHaveText("Products");

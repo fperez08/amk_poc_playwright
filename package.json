@@ -1,16 +1,16 @@
 {
-    "name": "amk_poc_playwright",
-    "version": "1.0.0",
-    "main": "index.js",
-    "author": "zerep28 <89164092+zerep28@users.noreply.github.com>",
-    "license": "MIT",
-    "devDependencies": {
-        "@playwright/test": "^1.26.1",
-        "basetag": "^2.1.0"
-    },
-    "scripts": {
-        "postinstall": "npx basetag link",
-        "test:fe": "playwright test",
-        "test:report": "npx playwright show-report"
-    }
+  "name": "amk_poc_playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "zerep28 <89164092+zerep28@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.26.1"
+  },
+  "scripts": {
+    "test:fe": "playwright test",
+    "test:report": "npx playwright show-report",
+
+    "test:be": "newman run ./e2eBE/BackEnd_newman/collection/Todoist.postman_collection.json -e ./e2eBE/BackEnd_newman/envVariables/QA_Environment.postman_environment.json -d ./e2eBE/BackEnd_newman/data/TDD.txt -r htmlextra --reporter-htmlextra-export './test-reports/reportBE.html' "
+  }
 }
