@@ -15,11 +15,6 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-18.11.2.tgz"
   integrity sha512-BWN3M23gLO2jVG8g/XHIRFWiiV4/GckeFIqbU/C4V3xpoBBWSMk4OZomouN0wCkfQFPqgZikyLr7DOYDysIkkw==
 
-basetag@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/basetag/-/basetag-2.1.0.tgz#9c42af8379778abe7fd44daa31417322a82ccedd"
-  integrity sha512-L77Q5OAAWEBxLxi8ExqZVJZ9BqzWq6tyq2QlFYKK2o2cI9l/HUk1KjowjLt3GB72Nchg+jV6ztiQT6agPy4quw==
-
 playwright-core@1.27.1:
   version "1.27.1"
   resolved "https://registry.npmjs.org/playwright-core/-/playwright-core-1.27.1.tgz"
